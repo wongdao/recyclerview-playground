@@ -1,11 +1,11 @@
 package com.example.android.recyclerplayground.fragments;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.android.recyclerplayground.DividerDecoration;
-import com.example.android.recyclerplayground.adapters.SimpleAdapter;
+import com.example.android.recyclerplayground.adapters.MyAdapter;
+import com.example.android.recyclerplayground.layout.MyGridLayoutManager;
 
 public class VerticalFragment extends RecyclerFragment {
 
@@ -18,7 +18,9 @@ public class VerticalFragment extends RecyclerFragment {
 
     @Override
     protected RecyclerView.LayoutManager getLayoutManager() {
-        return new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        RecyclerView.LayoutManager manager1 = new MyGridLayoutManager();
+        return manager1;
+
     }
 
     @Override
@@ -33,7 +35,7 @@ public class VerticalFragment extends RecyclerFragment {
     }
 
     @Override
-    protected SimpleAdapter getAdapter() {
-        return new SimpleAdapter();
+    protected MyAdapter getAdapter() {
+        return new MyAdapter();
     }
 }

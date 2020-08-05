@@ -11,6 +11,8 @@ import android.view.MenuItem;
 
 import com.example.android.recyclerplayground.fragments.FixedTwoWayFragment;
 import com.example.android.recyclerplayground.fragments.HorizontalFragment;
+import com.example.android.recyclerplayground.fragments.Mid2Fragment;
+import com.example.android.recyclerplayground.fragments.Mid2FragmentOld;
 import com.example.android.recyclerplayground.fragments.NavigationDrawerFragment;
 import com.example.android.recyclerplayground.fragments.VerticalFragment;
 import com.example.android.recyclerplayground.fragments.VerticalGridFragment;
@@ -52,18 +54,24 @@ public class MainActivity extends AppCompatActivity implements
         FragmentTransaction ft = fragmentManager.beginTransaction();
         switch (position) {
             case 0:
-                ft.replace(R.id.container, VerticalFragment.newInstance());
+                ft.replace(R.id.container, Mid2Fragment.newInstance());
                 break;
             case 1:
-                ft.replace(R.id.container, HorizontalFragment.newInstance());
+                ft.replace(R.id.container, Mid2FragmentOld.newInstance());
                 break;
             case 2:
-                ft.replace(R.id.container, VerticalGridFragment.newInstance());
+                ft.replace(R.id.container, VerticalFragment.newInstance());
                 break;
             case 3:
-                ft.replace(R.id.container, VerticalStaggeredGridFragment.newInstance());
+                ft.replace(R.id.container, HorizontalFragment.newInstance());
                 break;
             case 4:
+                ft.replace(R.id.container, VerticalGridFragment.newInstance());
+                break;
+            case 5:
+                ft.replace(R.id.container, VerticalStaggeredGridFragment.newInstance());
+                break;
+            case 6:
                 ft.replace(R.id.container, FixedTwoWayFragment.newInstance());
                 break;
             default:

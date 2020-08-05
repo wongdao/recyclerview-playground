@@ -2,11 +2,13 @@
 <resources>
 
     <string name="app_name">RecyclerPlayground</string>
-    <string name="title_section1">Vertical List</string>
-    <string name="title_section2">Horizontal List</string>
-    <string name="title_section3">Vertical Grid</string>
-    <string name="title_section4">Vertical Staggered Grid</string>
-    <string name="title_section5">Fixed Two-Way List</string>
+    <string name="title_section0">Mid2 List</string>
+    <string name="title_section1">Mid2 Old List</string>
+    <string name="title_section2">My Grid List</string>
+    <string name="title_section3">Horizontal List</string>
+    <string name="title_section4">Vertical Grid</string>
+    <string name="title_section5">Vertical Staggered Grid</string>
+    <string name="title_section6">Fixed Two-Way List</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

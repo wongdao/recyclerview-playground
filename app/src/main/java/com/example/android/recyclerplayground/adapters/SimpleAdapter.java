@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.VerticalItemHolder> {
+public class SimpleAdapter extends AbstractOperations<SimpleAdapter.VerticalItemHolder> {
 
     private ArrayList<GameItem> mItems;
 
@@ -29,6 +29,7 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.VerticalIt
      * the view. However, this method will not trigger any of the RecyclerView
      * animation features.
      */
+    @Override
     public void setItemCount(int count) {
         mItems.clear();
         mItems.addAll(generateDummyData(count));
@@ -41,6 +42,7 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.VerticalIt
      * RecyclerView method, notifyItemInserted(), to trigger any enabled item
      * animations in addition to updating the view.
      */
+    @Override
     public void addItem(int position) {
         if (position > mItems.size()) return;
         
@@ -53,6 +55,7 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.VerticalIt
      * RecyclerView method, notifyItemRemoved(), to trigger any enabled item
      * animations in addition to updating the view.
      */
+    @Override
     public void removeItem(int position) {
         if (position >= mItems.size()) return;
 

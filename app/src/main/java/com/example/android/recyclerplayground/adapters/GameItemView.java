@@ -1,7 +1,9 @@
 package com.example.android.recyclerplayground.adapters;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.view.animation.OvershootInterpolator;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
@@ -36,5 +38,20 @@ public class GameItemView extends GridLayout {
         return mAwayScore.getText() + "v" + mHomeScore.getText()
                 + ": " + getLeft() + "," + getTop()
                 + ": " + getMeasuredWidth() + "x" + getMeasuredHeight();
+    }
+
+    @Override
+    protected void onFocusChanged(boolean gainFocus, int direction, Rect previouslyFocusedRect) {
+        super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
+
+        if (gainFocus) {
+            this.animate().scaleX(1.1f).scaleY(1.1f).setDuration(400)
+            //this.animate().alpha(1.1f).setDuration(400)
+                    .setInterpolator(new OvershootInterpolator())
+                    .start();
+        } else {
+            this.animate().scaleX(1.0f).scaleY(1.0f).setDuration(400).start();
+            //this.animate().alpha(1.0f).setDuration(400).start();
+        }
     }
 }

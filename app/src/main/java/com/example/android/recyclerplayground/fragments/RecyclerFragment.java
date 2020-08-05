@@ -2,6 +2,7 @@ package com.example.android.recyclerplayground.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,24 +15,28 @@ import android.widget.Toast;
 
 import com.example.android.recyclerplayground.NumberPickerDialog;
 import com.example.android.recyclerplayground.R;
-import com.example.android.recyclerplayground.adapters.SimpleAdapter;
+import com.example.android.recyclerplayground.adapters.AbstractOperations;
 
 public abstract class RecyclerFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private RecyclerView mList;
-    private SimpleAdapter mAdapter;
+    private AbstractOperations mAdapter;
 
     /** Required Overrides for Sample Fragments */
 
     protected abstract RecyclerView.LayoutManager getLayoutManager();
     protected abstract RecyclerView.ItemDecoration getItemDecoration();
     protected abstract int getDefaultItemCount();
-    protected abstract SimpleAdapter getAdapter();
+    protected abstract AbstractOperations getAdapter();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+    }
+
+    public RecyclerView.ItemAnimator getItemAnimator() {
+        return new DefaultItemAnimator();
     }
 
     @Override
@@ -41,6 +46,7 @@ public abstract class RecyclerFragment extends Fragment implements AdapterView.O
 
         mList = (RecyclerView) rootView.findViewById(R.id.section_list);
         mList.setLayoutManager(getLayoutManager());
+        mList.setItemAnimator(getItemAnimator());
         mList.addItemDecoration(getItemDecoration());
 
         mList.getItemAnimator().setAddDuration(1000);
